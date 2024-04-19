@@ -26,6 +26,6 @@ This project is licensed under the terms of the [Template License](https://boots
 - Thanks to all contributors who helped in the development of this project.
 
 <video width="320" height="240" controls>
-  <source src="assets/hutao.mp4" type="video/mp4">
+  <source src="hutao.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
