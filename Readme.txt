@@ -1,4 +1,4 @@
-# Project Title
+#Webschool
 
 ## Description
 This project is a website built using the Arsha template, created by BootstrapMade.com. The template provides a sleek and professional design suitable for corporate or business websites.
@@ -25,4 +25,4 @@ This project is licensed under the terms of the [Template License](https://boots
 - Special thanks to BootstrapMade.com for providing the Arsha template for free.
 - Thanks to all contributors who helped in the development of this project.
 
-<img src="assets/video/hu-tao-scary-genshin-impact-moewalls-com.mp4";
+![Video Example](assets/video/hu-tao-scary-genshin-impact-moewalls-com.mp4)
