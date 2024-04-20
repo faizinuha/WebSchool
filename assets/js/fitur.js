@@ -15,5 +15,3 @@ function showalert1() {
     confirmButtonText: "OK",
   });
 }
-
-function showalert2(){Swal.fire({title:})}
