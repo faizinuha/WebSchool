@@ -7,3 +7,13 @@ function showAlert() {
     confirmButtonText: "OK",
   });
 }
+function showalert1() {
+  Swal.fire({
+    title: "Neni Anggriyani",
+    text: "Neni Anggriyani Belum Menambahkan Media|Mohon di Tunggu",
+    icon: "error",
+    confirmButtonText: "OK",
+  });
+}
+
+function showalert2(){Swal.fire({title:})}
