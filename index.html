@@ -32,8 +32,25 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+      <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+    <script src="assets/js/cookie.js" defer></script>
 </head>
 <body>  
+  <!-- SetCookie -->
+<div class="wrapper">
+      <header>
+        <i class="bx bx-cookie"></i>
+        <h2>Cookies Consent</h2>
+      </header>
+      <div class="data">
+        <p>This website use cookies to help you have a superior and more relevant browsing experience on the website. <a href="#"> Read more...</a></p>
+      </div>
+      <div class="buttons">
+        <button class="button" id="acceptBtn">Accept</button>
+        <button class="button" id="declineBtn">Decline</button>
+      </div>
+    </div>
+  <!-- EndCookie -->
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
@@ -573,6 +590,7 @@ Kabupaten Banyuwangi, Jawa Timur 68468 <br><br>
 
   
   <!-- Template Main JS File -->
+  <script src="assets/js/cookie.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/fitur.js"></script>
   <script src="forms/contact.js"></script>
