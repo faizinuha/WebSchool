@@ -13,46 +13,53 @@
 
 <body class="bg-light p-4">
     <div class="container">
-        <div class="card mx-auto mt-5" style="max-width: 500px;">
-            <div class="card-header bg-primary text-white">
-                <h2 class="card-title mb-0">Pendaftaran Siswa Baru</h2>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <img src="../assets/img/siswabaru-removebg-preview.png"
+                alt="Your Image" class="img-fluid w-100 ">
             </div>
-            <div class="card-body">
-                <form id="registrationForm" onsubmit="handleSubmit(event)">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nama Lengkap</label>
-                        <input type="text" id="name" name="name" class="form-control">
+            <div class="col-md-6 mx-auto">
+                <div class="card mt-5">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="card-title mb-0">Pendaftaran Siswa Baru</h2>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Alamat Email</label>
-                        <input type="email" id="email" name="email" class="form-control">
+                    <div class="card-body">
+                        <form id="registrationForm" onsubmit="handleSubmit(event)">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama Lengkap</label>
+                                <input type="text" id="name" name="name" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Alamat Email</label>
+                                <input type="email" id="email" name="email" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="grade" class="form-label">Kelas</label>
+                                <select id="grade" name="grade" class="form-select">
+                                    <option selected>Pilih Kelas</option>
+                                    <option>Kelas 10</option>
+                                    <!-- Tambahkan opsi lebih banyak jika diperlukan -->
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="dob" class="form-label">Tanggal Lahir</label>
+                                <input type="date" id="dob" name="dob" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Alamat</label>
+                                <textarea id="address" name="address" rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="">
+                                <button type="submit" class="btn btn-primary">Daftar</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="mb-3">
-                        <label for="grade" class="form-label">Kelas</label>
-                        <select id="grade" name="grade" class="form-select">
-                            <option selected>Pilih Kelas</option>
-                            <option>Kelas 1</option>
-                            <option>Kelas 2</option>
-                            <option>Kelas 3</option>
-                            <!-- Tambahkan opsi lebih banyak jika diperlukan -->
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dob" class="form-label">Tanggal Lahir</label>
-                        <input type="date" id="dob" name="dob" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Alamat</label>
-                        <textarea id="address" name="address" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary">Daftar</button>
-                        <button type="reset" class="btn btn-secondary">Reset</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 
     <script>
@@ -75,36 +82,33 @@
         }
 
         function saveToExcel() {
-    // Mendapatkan URL dari file Excel yang sudah ada
-    const excelFilePath = 'data.xlsx';
-    
-    // Membuat permintaan untuk mengambil file Excel menggunakan fetch API
-    fetch(excelFilePath)
-        .then(response => response.blob())
-        .then(blob => {
-            // Buat URL untuk blob
-            const url = URL.createObjectURL(blob);
+            // Mendapatkan URL dari file Excel yang sudah ada
+            const excelFilePath = 'data.xlsx';
 
-            // Buat elemen anchor untuk unduh file
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'data.xlsx';
+            // Membuat permintaan untuk mengambil file Excel menggunakan fetch API
+            fetch(excelFilePath)
+                .then(response => response.blob())
+                .then(blob => {
+                    // Buat URL untuk blob
+                    const url = URL.createObjectURL(blob);
 
-            // Klik anchor secara otomatis untuk memulai unduhan
-            a.click();
+                    // Buat elemen anchor untuk unduh file
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'data.xlsx';
 
-            // Hapus URL blob setelah unduhan selesai
-            setTimeout(() => {
-                URL.revokeObjectURL(url);
-            }, 0);
-        })
-        .catch(error => {
-            console.error('Gagal mengambil file Excel:', error);
-        });
-}
+                    // Klik anchor secara otomatis untuk memulai unduhan
+                    a.click();
 
-
+                    // Hapus URL blob setelah unduhan selesai
+                    setTimeout(() => {
+                        URL.revokeObjectURL(url);
+                    }, 0);
+                })
+                .catch(error => {
+                    console.error('Gagal mengambil file Excel:', error);
+                });
+        }
     </script>
 </body>
-
 </html>
