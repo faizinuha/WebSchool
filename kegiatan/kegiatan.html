@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sekolah Video Player</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <!-- navbar ke  -->
+
+    <div class="container-fluid d-flex justify-content-center">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand text-center">Navbar</a>
+          <!-- <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+            <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
+          </form> -->
+        </div>
+      </nav>
+    </div>
+    
+    <!-- navbar -->
+  <div class="container">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold mb-4 d-flex justify-content-center">Sekolah Video Player</h2>
+      <hr>
+      
+
+      <!-- Input untuk mencari video -->
+      <div class="mb-4 input-group">
+        <input type="text" id="search-input" placeholder="Ketik kegiatan yang ingin dicari..." class="form-control">
+        <button class="btn btn-primary"   type="button" id="search-button"><i class="bi bi-search"></i></button>
+      </div>
+
+      <!-- Area penampilan video -->
+      <div class="mb-4 row">
+        <div class="col-md-6 mb-4" id="video-lofi1">
+          <iframe width="500" height="200" id="lofi1"
+          src="https://www.youtube.com/embed/487Xz9y_f6w?si=8aUSX4DMYLudNWOv"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        </div>
+          <!-- video ke 2 -->
+        <div class="col-md-6 mb-4" id="video-lofu1" style="margin-top: 0;">
+          <iframe width="500" height="200" id="lofu1"
+            src="https://www.youtube.com/embed/elAxW_LAawU?si=GTvTIgT4dxq-S6Qb"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Area pesan kesalahan -->
+      <div id="error-message" class="mb-4 text-danger" style="display: none;"></div>
+    </div>
+  </div>
+
+  <script>
+    // Fungsi untuk menampilkan video berdasarkan ID-nya
+    function showVideoByID(videoID) {
+      // Sembunyikan semua video
+      var videos = document.querySelectorAll('iframe');
+      videos.forEach(function(video) {
+        video.style.display = "none";
+      });
+
+      // Tampilkan video dengan ID yang sesuai
+      var videoToShow = document.getElementById(videoID);
+      if (videoToShow) {
+        videoToShow.style.display = "block";
+        document.getElementById("error-message").style.display = "none"; // Sembunyikan pesan kesalahan jika video ditemukan
+      } else {
+        document.getElementById("error-message").innerText = "Video Untuk " + videoID + " tidak ditemukan.";
+        document.getElementById("error-message").style.display = "block"; // Tampilkan pesan kesalahan
+      }
+    }
+
+    // Fungsi untuk memindahkan elemen video ke posisi baru di area tampilan video
+    function moveVideoToNewPosition(videoID, newPositionID) {
+      // Temukan elemen video berdasarkan ID-nya
+      var videoElement = document.getElementById(videoID);
+
+      // Temukan posisi di mana video akan dipindahkan
+      var newPosition = document.getElementById(newPositionID);
+
+      // Hapus elemen video dari posisinya saat ini
+      videoElement.parentNode.removeChild(videoElement);
+
+      // Masukkan elemen video ke posisi baru
+      newPosition.appendChild(videoElement);
+    }
+
+    // Event listener untuk mencari video dengan mengklik tombol pencarian
+    document.getElementById("search-button").addEventListener("click", function() {
+      searchVideo();
+    });
+
+    // Event listener untuk mencari video dengan menekan tombol Enter
+    document.getElementById("search-input").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        searchVideo();
+      }
+    });
+
+    // Fungsi untuk mencari video
+    function searchVideo() {
+      var activity = document.getElementById("search-input").value.trim();
+      if (activity === "lofi1") {
+        showVideoByID("lofi1");
+        moveVideoToNewPosition("lofi1", "video-lofi1"); // Pindahkan lofi1 ke sisi kiri 1
+      } else if (activity === "lofu1") {
+        showVideoByID("lofu1");
+        moveVideoToNewPosition("lofu1", "video-lofu1"); // Pindahkan lofu1 ke sisi kanan 2
+      } else if(activity === "lofi1"){
+        showVideoByID("lofi1");
+        moveVideoToNewPosition("lofi1", "video-lofi1"); // Pindahkan lofi1 ke sisi kanan 3
+      } else if(activity === "lofu1"){
+        showVideoByID("lofu1");
+        moveVideoToNewPosition("lofu1", "video-lofu1"); // Pindahkan lofi1 ke sisi kiri 4
+      } else {
+        document.getElementById("error-message").innerText = "Video untuk " + activity + " tidak ditemukan.";
+        document.getElementById("error-message").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
