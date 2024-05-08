@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <img src="../assets/img/siswabaru-removebg-preview.png"
-                alt="Your Image" class="img-fluid w-100 ">
+                     alt="Your Image" class="img-fluid w-100 ">
             </div>
             <div class="col-md-6 mx-auto">
                 <div class="card mt-5">
@@ -46,6 +46,19 @@
                                 <input type="date" id="dob" name="dob" class="form-control">
                             </div>
                             <div class="mb-3">
+                                <label for="major" class="form-label">Jurusan</label>
+                                <select id="major" name="major" class="form-select">
+                                    <option selected>Pilih Jurusan</option>
+                                    <option>IPA</option>
+                                    <option>IPS</option>
+                                    <!-- Tambahkan opsi lainnya jika diperlukan -->
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="reason" class="form-label">Alasan Masuk Sekolah</label><br>
+                                <input type="text" id="reason" name="reason" class="form-control" placeholder="Ketikkan Alasan Anda">
+                            </div>
+                            <div class="mb-3">
                                 <label for="address" class="form-label">Alamat</label>
                                 <textarea id="address" name="address" rows="3" class="form-control"></textarea>
                             </div>
@@ -64,52 +77,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 
     <script>
+        // Fungsi untuk menangani pengiriman formulir
         function handleSubmit(event) {
-            event.preventDefault();
-            // Ambil data dari formulir
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData.entries());
-            // Simpan data ke dalam file Excel (contoh sederhana)
-            // Anda dapat menggunakan library seperti ExcelJS untuk pekerjaan yang lebih canggih
-            saveToExcel(data);
-            // Tampilkan pesan SweetAlert setelah berhasil disubmit
+            event.preventDefault(); // Mencegah perilaku default formulir
+
+            // Mengambil nilai dari input formulir
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var grade = document.getElementById("grade").value;
+            var dob = document.getElementById("dob").value;
+            var address = document.getElementById("address").value;
+            var major = document.getElementById("major").value;
+            var reason = document.getElementById("reason").value;
+
+            // Membuat pesan untuk dikirim ke WhatsApp
+            var message = "Nama: " + name + "%0A" +
+                "Email: " + email + "%0A" +
+                "Kelas: " + grade + "%0A" +
+                "Tanggal Lahir: " + dob + "%0A" +
+                "Alamat: " + address + "%0A" +
+                "Jurusan: " + major + "%0A" +
+                "Alasan Masuk Sekolah: " + reason;
+
+            // Menampilkan pemberitahuan sebelum mengirim ke WhatsApp
             Swal.fire({
-                icon: 'success',
-                title: 'Berhasil!',
-                text: 'Pendaftaran berhasil. Data Anda telah tersimpan.'
+                title: 'Konfirmasi',
+                text: 'Apakah Anda yakin ingin mengirim data?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengonfirmasi, maka kirim ke WhatsApp
+                    sendToWhatsApp(message);
+                }
             });
-            // Bersihkan formulir setelah berhasil disubmit
-            event.target.reset();
         }
-
-        function saveToExcel() {
-            // Mendapatkan URL dari file Excel yang sudah ada
-            const excelFilePath = 'data.xlsx';
-
-            // Membuat permintaan untuk mengambil file Excel menggunakan fetch API
-            fetch(excelFilePath)
-                .then(response => response.blob())
-                .then(blob => {
-                    // Buat URL untuk blob
-                    const url = URL.createObjectURL(blob);
-
-                    // Buat elemen anchor untuk unduh file
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'data.xlsx';
-
-                    // Klik anchor secara otomatis untuk memulai unduhan
-                    a.click();
-
-                    // Hapus URL blob setelah unduhan selesai
-                    setTimeout(() => {
-                        URL.revokeObjectURL(url);
-                    }, 0);
-                })
-                .catch(error => {
-                    console.error('Gagal mengambil file Excel:', error);
-                });
+        form.reset();
+        // Fungsi untuk mengirim pesan ke WhatsApp
+        function sendToWhatsApp(message) {
+            // Ganti nomor WhatsApp sesuai kebutuhan Anda
+            var whatsappURL = 'https://api.whatsapp.com/send?phone=6281235702123&text=' + message;
+            // Buka link WhatsApp
+            window.open(whatsappURL);
         }
     </script>
 </body>
+
 </html>
