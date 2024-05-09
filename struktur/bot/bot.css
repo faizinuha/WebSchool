@@ -1,0 +1,68 @@
+  /* Custom CSS for LINE-like chat interface */
+  body {
+    background-color: #f8f9fa;
+  }
+
+  .customer {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  .chat-container {
+    background-color: #e9ecef;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  .chat-history {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .chat-input {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 70px);
+  }
+
+  .chat-submit {
+    background-color: #00C300;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .chat-submit:hover {
+    background-color: #00AA00;
+  }
+
+  .chat-bubble {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+  }
+
+  .outgoing-bubble {
+    background-color: #dcf8c6;
+    color: #000;
+    align-self: flex-end;
+  }
+
+  .incoming-bubble {
+    background-color: #e0e0e0;
+    color: #000;
+  }
