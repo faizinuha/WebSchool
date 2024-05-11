@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Chat Interface</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Your custom CSS -->
+  <style>
+    /* Custom CSS for LINE-like chat interface */
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .customer {
+      background-color: #ffffff;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
+    .list {
+      margin: 10px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list-item {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .list-item:hover {
+      color: blue;
+    }
+
+    .chat-container {
+      background-color: #e9ecef;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
+    .chat-history {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .chat-input {
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      width: calc(100% - 70px);
+    }
+
+    .chat-submit {
+      background-color: #00C300;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .chat-submit:hover {
+      background-color: #00AA00;
+    }
+
+    .chat-bubble {
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      max-width: 80%;
+    }
+
+    .outgoing-bubble {
+      background-color: #dcf8c6;
+      color: #000;
+      align-self: flex-end;
+    }
+
+    .incoming-bubble {
+      background-color: #e0e0e0;
+      color: #000;
+    }
+
+    .user-message {
+      text-align: right;
+      margin-bottom: 5px;
+    }
+
+    .date-divider {
+      text-align: center;
+      color: #6c757d;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="customer">
+    <h1 class="text-2xl font-bold text-center">Layanan Smk Al Azhar</h1>
+    <p>Silakan pilih salah satu pertanyaan di bawah ini atau tanyakan pertanyaan Anda:</p>
+    <ul class="list">
+      <li class="list-item" onclick="sendMessage('Apa syarat pendaftaran?')">Apa syarat pendaftaran?</li>
+      <li class="list-item" onclick="sendMessage('Apa saja jurusan yang tersedia?')">Apa saja jurusan yang tersedia?</li>
+      <li class="list-item" onclick="sendMessage('Bagaimana proses pendaftaran?')">Bagaimana proses pendaftaran?</li>
+    </ul>
+  </div>
+  
+  <!-- container -->
+  <div class="chat-gap"></div>
+
+  <div class="chat-container" id="reset">
+    <div class="chat-history" id="chat-history"></div>
+    <div class="d-flex mt-4">
+      <input type="text" id="user-input" placeholder="Ketik pesan..." class="form-control chat-input">
+      <button id="send-btn" class="btn btn-success chat-submit"><i class="bi bi-send"></i></button>
+   
+    </div>
+    <a href="/index.html" class="m-1 order-0">BackHome</a>
+  </div>
+  <footer class="text-center">
+    <p>Create@ChatGpt</p>
+    <p>Ide@Zaki</p>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xbFtvBy6mIzv68V1vYo3GM1rpQ8zPaU9KDd6cPY3jnswCzbGxCua9zKTGQqzFvZt" crossorigin="anonymous"></script>
+  <!-- Your custom script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Function to send a message
+      function sendMessage(message) {
+        var chatHistory = document.getElementById("chat-history");
+
+        // Add user's message to chat history with date
+        var now = new Date();
+        var dateString = now.toLocaleDateString();
+        var timeString = now.toLocaleTimeString();
+        var fullDateString = dateString + " " + timeString;
+        var userMessageElement = document.createElement("div");
+        userMessageElement.className = "user-message";
+        userMessageElement.innerHTML = '<div class="date-divider">' + fullDateString + '</div>' +
+          '<div class="outgoing-bubble chat-bubble">' + message + '</div>';
+        chatHistory.appendChild(userMessageElement);
+
+        // Bot responds based on user's input with date
+        var botResponse = getBotResponse(message);
+        var botReplyElement = document.createElement("div");
+        botReplyElement.className = "incoming-msg";
+        var botBubbleElement = document.createElement("div");
+        botBubbleElement.className = "chat-bubble incoming-bubble";
+        botBubbleElement.innerHTML = botResponse;
+        botReplyElement.appendChild(botBubbleElement);
+        chatHistory.appendChild(botReplyElement);
+
+        // Clear input after sending message
+        document.getElementById("user-input").value = "";
+
+        // Scroll to bottom on new message
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+      // Function to get bot's response based on user's input
+      function getBotResponse(userInput) {
+        if (userInput.toLowerCase().includes("permisi")) {
+          return "Halo! Ada yang bisa saya bantu?";
+        } else if (userInput.toLowerCase().includes("mau tanya")) {
+          return "Apa yang ingin Anda tanyakan?";
+        } else if(userInput.toLowerCase().includes("apa saja jurusan yang tersedia")){
+          return "Baiklah Ini Adalah Jurusan di sekolah Kami:\ RPL, TKJ, TKR, TB, AK";
+          
+        } else {
+          return "Maaf, saya tidak mengerti. Mohon sampaikan pertanyaan Anda dengan lebih jelas.";
+        }
+      }
+
+      // Add event listener to "Send" button
+      document.getElementById("send-btn").addEventListener("click", function() {
+        var userInput = document.getElementById("user-input").value;
+        sendMessage(userInput);
+      });
+
+      // Add event listener to send message when "Enter" is pressed
+      document.getElementById("user-input").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          var userInput = document.getElementById("user-input").value;
+          sendMessage(userInput);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
