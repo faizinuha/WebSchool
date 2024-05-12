@@ -46,20 +46,21 @@ document.getElementById("search-input").addEventListener("keypress", function(ev
 });
 
 // Fungsi untuk mencari video
+// Fungsi untuk mencari video
 function searchVideo() {
   var activity = document.getElementById("search-input").value.trim();
   if (activity === "lofi1") {
     showVideoByID("lofi1");
-    moveVideoToNewPosition("lofi1", "video-lofi1"); // Pindahkan lofi1 ke sisi kiri 1
+    moveVideoToNewPosition("lofi1", "video-lofi1"); // Pindahkan lofi1 ke posisi lofi1
   } else if (activity === "lofu1") {
     showVideoByID("lofu1");
-    moveVideoToNewPosition("lofu1", "video-lofu1"); // Pindahkan lofu1 ke sisi kanan 2
-  } else if(activity === "lofi1"){
-    showVideoByID("lofi1");
-    moveVideoToNewPosition("lofi1", "video-lofi1"); // Pindahkan lofi1 ke sisi kanan 3
-  } else if(activity === "lofu1"){
-    showVideoByID("lofu1");
-    moveVideoToNewPosition("lofu1", "video-lofu1"); // Pindahkan lofi1 ke sisi kiri 4
+    moveVideoToNewPosition("lofu1", "video-lofu1"); // Pindahkan lofu1 ke posisi lofu1
+  } else if (activity === "kendil") {
+    showVideoByID("kendil");
+    moveVideoToNewPosition("kendil", "video-lofu1"); // Pindahkan kendil ke posisi lofu1
+  } else if (activity === "lhaaaa") {
+    showVideoByID("lhaaaa");
+    moveVideoToNewPosition("lhaaaa", "video-lofi1"); // Pindahkan lhaaaa ke posisi lofi1
   } else {
     document.getElementById("error-message").innerText = "Video untuk " + activity + " tidak ditemukan.";
     document.getElementById("error-message").style.display = "block";

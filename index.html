@@ -14,9 +14,15 @@
   <link href="assets/img/logo.jpeg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+
+<!-- goole icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -54,7 +60,7 @@
           <li class="dropdown"><a href="#"><span>Opsi Lain</span><i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="eskul.html">Eskul</a></li>
-              <li><a href="kegiatan/kegiatan.html">Kegiatan</a></li>
+              <!-- <li><a href="kegiatan/kegiatan.html">Kegiatan</a></li> -->
               <li class="dropdown"><a href="#"><span>Selengkap Ya</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="https://ppdb.smkalazhar.sch.id/" target="_blank">Daftar</a></li>
@@ -106,76 +112,39 @@
   </section><!-- End Hero -->
   <main id="main">
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients section">
-      <div class="container">
-        <div class="swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center" >
-            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center aos-init aos-animate">
-              <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center aos-init aos-animate">
-              <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center aos-init aos-animate">
-              <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center aos-init aos-animate">
-              <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center aos-init aos-animate">
-              <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-            </div>
-  
-            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center aos-init aos-animate">
-              <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-            </div>
-          </div>
+    
+<section id="clients" class="clients">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
         </div>
 
-      </div>
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="400">
+            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+        </div>
 
-    </section><!-- /Clients Section -->
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="500">
+            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">
+            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="600">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+        </div>
+
+    </div>
+
+</div>
+</section><!-- End Clients Section -->
+    <!-- /Clients Section -->
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
@@ -376,8 +345,7 @@
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="https://ppdb.smkalazhar.sch.id/"
-              onclick="alert('Loading'); setTimeout(function(){ window.open('daftar-seko/daftar.html', '_blank'); }, 2000); return false;">Bergabung
-              Sekarang</a>
+              onclick="alert('Loading'); setTimeout(function(){ window.open('daftar-seko/daftar.html', '_blank'); }, 2000); return false;">Bergabung Sekarang </a>
           </div>
         </div>
       </div>
@@ -696,7 +664,6 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
