@@ -1,4 +1,3 @@
-
 // Fungsi untuk menampilkan video berdasarkan ID-nya
 function showVideoByID(videoID) {
   // Sembunyikan semua video
@@ -13,8 +12,9 @@ function showVideoByID(videoID) {
     videoToShow.style.display = "block";
     document.getElementById("error-message").style.display = "none"; // Sembunyikan pesan kesalahan jika video ditemukan
   } else {
-    document.getElementById("error-message").innerText = "Video Untuk " + videoID + " tidak ditemukan.";
+    document.getElementById("error-message").innerText = "Video untuk " + videoID + " tidak ditemukan.";
     document.getElementById("error-message").style.display = "block"; // Tampilkan pesan kesalahan
+    showErrorNotification();
   }
 }
 
@@ -46,23 +46,33 @@ document.getElementById("search-input").addEventListener("keypress", function(ev
 });
 
 // Fungsi untuk mencari video
-// Fungsi untuk mencari video
 function searchVideo() {
   var activity = document.getElementById("search-input").value.trim();
   if (activity === "lofi1") {
     showVideoByID("lofi1");
-    moveVideoToNewPosition("lofi1", "video-lofi1"); // Pindahkan lofi1 ke posisi lofi1
-  } else if (activity === "lofu1") {
-    showVideoByID("lofu1");
-    moveVideoToNewPosition("lofu1", "video-lofu1"); // Pindahkan lofu1 ke posisi lofu1
-  } else if (activity === "kendil") {
-    showVideoByID("kendil");
-    moveVideoToNewPosition("kendil", "video-lofu1"); // Pindahkan kendil ke posisi lofu1
-  } else if (activity === "lhaaaa") {
-    showVideoByID("lhaaaa");
-    moveVideoToNewPosition("lhaaaa", "video-lofi1"); // Pindahkan lhaaaa ke posisi lofi1
+    moveVideoToNewPosition("lofi1", "video-lofi1"); 
+  } else if (activity === "surup") {
+    showVideoByID("surup");
+    moveVideoToNewPosition("surup", "video-surup");
+  } else if (activity === "kendel") {
+    showVideoByID("kendel");
+    moveVideoToNewPosition("kendel","video-kendel");
+  } else if (activity === "siul") {
+    showVideoByID("siul");
+    moveVideoToNewPosition("siul","video-siul");
   } else {
     document.getElementById("error-message").innerText = "Video untuk " + activity + " tidak ditemukan.";
     document.getElementById("error-message").style.display = "block";
+    showErrorNotification();
   }
+}
+
+// Fungsi untuk menampilkan notifikasi error
+function showErrorNotification() {
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Video tidak ditemukan. Silakan coba lagi!",
+    footer: '<a href="#">Mengapa saya memiliki masalah ini?</a>'
+  });
 }

@@ -1,70 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sekolah Video Player</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-</head>
-<body class="bg-gray-100 p-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sekolah Video Player</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  </head>
+  <body class="bg-gray-100 p-8">
     <!-- navbar ke  -->
 
     <div class="container-fluid d-flex justify-content-center">
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand text-center">Navbar</a>
-          <!-- <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-            <button class="btn btn-outline-success" type="submit" id="search-button">Search</button>
-          </form> -->
         </div>
       </nav>
     </div>
-    
+
     <!-- navbar -->
-  <div class="container">
-    <div class="bg-white p-8 rounded-lg shadow-md">
-      <h2 class="text-2xl font-bold mb-4 d-flex justify-content-center">Sekolah Video Player</h2>
-      <hr>
-      
+    <div class="container">
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4 d-flex justify-content-center">
+          Sekolah Video Player
+        </h2>
+        <hr />
 
-      <!-- Input untuk mencari video -->
-      <div class="mb-4 input-group">
-        <input type="text" id="search-input" placeholder="Ketik kegiatan yang ingin dicari..." class="form-control">
-        <button class="btn btn-primary"   type="button" id="search-button"><i class="bi bi-search"></i></button>
-      </div>
-
-      <!-- Area penampilan video -->
-      <div class="mb-4 row">
-        <div class="col-md-6 mb-4" id="video-lofi1">
-          <iframe width="500" height="200" id="lofi1"
-          src="https://www.youtube.com/embed/YxC6L_4_bLA?si=F7ixKol_jVnvq8zl"
-          title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
+        <!-- Input untuk mencari video -->
+        <div class="mb-4 input-group">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Ketik kegiatan yang ingin dicari..."
+            class="form-control" />
+          <button class="btn btn-primary" type="button" id="search-button">
+            <i class="bi bi-search"></i>
+          </button>
         </div>
+
+        <!-- Area penampilan video -->
+        <div class="mb-4 row">
+          <div class="col-md-6 mb-4" id="video-lofi1">
+            <iframe
+              width="500"
+              height="200"
+              id="lofi1"
+              src="https://www.youtube.com/embed/YxC6L_4_bLA?si=F7ixKol_jVnvq8zl"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
           <!-- video ke 2 -->
-        <div class="col-md-6 mb-4" id="video-lofu1" style="margin-top: 0;">
-          <iframe width="500" height="200" id="lofu1"
-            src="https://www.youtube.com/embed/elAxW_LAawU?si=GTvTIgT4dxq-S6Qb"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
+          <div class="col-md-6 mb-4" id="video-surup" style="margin-top: 0">
+            <iframe
+              width="500"
+              height="200"
+              id="surup"
+              src="https://www.youtube.com/embed/fKfECPl-p0o?si=sp-nPgbiLWcCYA72"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="col-md-6 mb-4" id="video-kendel" style="margin-top: 0">
+            <iframe
+              width="500"
+              height="200"
+              id="kendel"
+              src="https://www.youtube.com/embed/s14aycGt_h4?si=kOtSeEFXsYQQ9xf8"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="col-md-6 mb-4" id="video-siul" style="margin-top: 0">
+            <iframe
+              width="500"
+              height="200"
+              id="siul"
+              src="https://www.youtube.com/embed/_VvIOzZeLcE?si=4UlTKkDTpwA7XvJu"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
         </div>
+
+        <!-- Area pesan kesalahan -->
+        <div
+          id="error-message"
+          class="error-message text-danger"
+          style="display: none"></div>
       </div>
-
-      <!-- Area pesan kesalahan -->
-      <div id="error-message" class="mb-4 text-danger" style="display: none;"></div>
     </div>
-  </div>
 
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+      document.getElementById("search-button").addEventListener("click", function() {
+        // Panggil fungsi pencarian video
+        searchVideo();
+      });
+
+      function searchVideo() {
+        // Ambil nilai dari input pencarian
+        var activity = document.getElementById("search-input").value.trim();
+        
+        // Logika pencarian video
+        if (activity === "lofi1") {
+          // Tampilkan video lofi1
+          showVideoByID("lofi1");
+        } else if (activity === "surup") {
+          // Tampilkan video surup
+          showVideoByID("surup");
+        } else if (activity === "kendel") {
+          // Tampilkan video kendel
+          showVideoByID("kendel");
+        }else if(activity === "siul"){
+          // tampilkan video siul
+          showVideoByID("siul");
+        } else {
+          // Tampilkan notifikasi error jika video tidak ditemukan
+          showErrorNotification();
+        }
+      }
+
+      function showVideoByID(videoID) {
+        // Sembunyikan semua video
+        var videos = document.querySelectorAll('iframe');
+        videos.forEach(function(video) {
+          video.style.display = "none";
+        });
+
+        // Tampilkan video dengan ID yang sesuai
+        var videoToShow = document.getElementById(videoID);
+        if (videoToShow) {
+          videoToShow.style.display = "block";
+          document.getElementById("error-message").style.display = "none"; // Sembunyikan pesan kesalahan jika video ditemukan
+        }
+      }
+
+      function showErrorNotification() {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Video tidak ditemukan. Silakan coba lagi!",
+          footer: '<a href="#">Mengapa saya memiliki masalah ini?</a>'
+        });
+      }
+    </script>
+  </body>
 </html>
