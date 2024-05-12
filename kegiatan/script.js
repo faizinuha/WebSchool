@@ -73,6 +73,6 @@ function showErrorNotification() {
     icon: "error",
     title: "Oops...",
     text: "Video tidak ditemukan. Silakan coba lagi!",
-    footer: '<a href="#">Mengapa saya memiliki masalah ini?</a>'
+    footer: '<a href="/struktur/bot/bot.html">Mengapa saya memiliki masalah ini?</a>'
   });
 }
