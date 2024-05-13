@@ -45,22 +45,28 @@ document.getElementById("search-input").addEventListener("keypress", function(ev
   }
 });
 
-// Data video dalam bentuk array of objects
-const videoData = [
-  { id: "lhaaaa", positionId: "video-lhaaaa" },
-  { id: "surup", positionId: "video-surup" },
-  { id: "sajen", positionId: "video-sajen" },
-  { id: "siul", positionId: "video-siul" },
-  { id: "kendil", positionId: "video-kendil" }
-];
-
 // Fungsi untuk mencari video
 function searchVideo() {
   var activity = document.getElementById("search-input").value.trim();
-  const video = videoData.find(v => v.id === activity);
-  if (video) {
-    showVideoByID(video.id);
-    moveVideoToNewPosition(video.id, video.positionId);
+  if (activity === "lhaaaa") {
+    showVideoByID("lhaaaa");
+    moveVideoToNewPosition("lhaaaa", "video-lhaaaa"); 
+  } else if (activity === "surup") {
+    showVideoByID("surup");
+    moveVideoToNewPosition("surup", "video-surup");
+
+  } else if (activity === "sajen") {
+    showVideoByID("sajen");
+    moveVideoToNewPosition("sajen", "video-sajen");
+    
+  } else if (activity === "siul") {
+    showVideoByID("siul");
+    moveVideoToNewPosition("siul", "video-siul");
+    
+  } else if (activity === "video-kendil") {
+    showVideoByID("kendil");
+    moveVideoToNewPosition("kendil", "video-kendil");
+    
   } else {
     document.getElementById("error-message").innerText = "Video untuk " + activity + " tidak ditemukan.";
     document.getElementById("error-message").style.display = "block";
