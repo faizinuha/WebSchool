@@ -25,8 +25,14 @@ This project is licensed under the terms of the [Template License](https://boots
 - Special thanks to BootstrapMade.com for providing the Arsha template for free.
 - Thanks to all contributors who helped in the development of this project.
 
+# https://github.com/browserslist/browserslist#readme
 
-indonesia
-Saya Minta Maaf karena waktu scrool ada delay karena itu asli bawaan kode
-dan saya telah menambahkan tanggal di bagian footer jadi kalian tidak perlu lihat notifikasi di hp kalian,
-di bagian daftar masih cooming soon dan kegiatan masih coomin soon?
+>= 0.5%
+last 2 major versions
+not dead
+Chrome >= 60
+Firefox >= 60
+Firefox ESR
+iOS >= 12
+Safari >= 12
+not Explorer <= 11

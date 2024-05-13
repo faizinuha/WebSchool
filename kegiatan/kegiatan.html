@@ -35,6 +35,9 @@
             <li class="nav-item">
               <a class="nav-link" href="../struktur/bot/bot.html">Layanan</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="reset()">reset view</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -93,13 +96,15 @@
               allowfullscreen></iframe>
           </div>
         </div>
-        <div class="col-md-6 mb-4" id="video-kendil">
-          <iframe width="100%" height="200" id="kendil"
-            src="https://www.youtube.com/embed/hd1GvLLA-P4?si=PlZsV_jII6AfV-21"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
+        <div class="row">
+          <div class="col-md-6 mb-4" id="video-kendil">
+            <iframe width="100%" height="200" id="kendil"
+              src="https://www.youtube.com/embed/hd1GvLLA-P4?si=PlZsV_jII6AfV-21"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
         </div>
 
         <!-- Area pesan kesalahan -->
@@ -109,8 +114,19 @@
     </div>
     <a href="#" class="back-to-top bg-black bxs-widget clients">
       <i class="bi bi-arrow-up-short"></i></a>
-
+<!-- footer -->
+<footer class="bg-dark text-light py-4">
+  <div class="container text-center">
+    <p>&copy; 2024 Sekolah Video Player. All rights reserved.</p>
+  </div>
+</footer>
+<!-- end footer -->
     <script src="script.js"></script>
+    <script>
+      function reset(){
+        location.reload();
+      }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         document.getElementById("search-button").addEventListener("click", function () {
