@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pemutar Video Sekolah</title>
     <!-- Bootstrap CSS -->
     <link
@@ -10,9 +10,11 @@
       rel="stylesheet"
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous" />
-    <link rel="stylesheet"
+    <link
+      rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet"
+    <link
+      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body class="bg-light p-5">
@@ -20,17 +22,25 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="../404/404.index.html">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false"
+          aria-controls="navbarNav"
+          aria-expanded="false"
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page"
-                href="../index.html">Beranda</a>
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="../index.html"
+                >Beranda</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../struktur/bot/bot.html">Layanan</a>
@@ -49,18 +59,25 @@
 
         <!-- Input untuk mencari video -->
         <div class="mb-4 input-group">
-          <input type="text" id="search-input"
+          <input
+            type="text"
+            id="search-input"
             placeholder="Ketik nama kegiatan yang ingin dicari..."
             class="form-control" />
           <button class="btn btn-primary" type="button" id="search-button">
             <i class="bi bi-search"></i>
           </button>
         </div>
-
+        <!-- data filter -->
+        
+        <!-- end filter -->
         <!-- Area penampilan video -->
         <div class="row">
           <div class="col-md-6 mb-4" id="video-lhaaaa">
-            <iframe width="100%"eight="200" id="lhaaaa"
+            <iframe
+              width="100%"
+              height="200"
+              id="lhaaaa"
               src="https://www.youtube.com/embed/YxC6L_4_bLA?si=F7ixKol_jVnvq8zl"
               title="Pemutar video YouTube"
               frameborder="0"
@@ -68,9 +85,11 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
-          <!-- video ke 2 -->
           <div class="col-md-6 mb-4" id="video-surup">
-            <iframe width="100%" height="200" id="surup"
+            <iframe
+              width="100%"
+              height="200"
+              id="surup"
               src="https://www.youtube.com/embed/fKfECPl-p0o?si=sp-nPgbiLWcCYA72"
               title="Pemutar video YouTube"
               frameborder="0"
@@ -78,29 +97,38 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
-
           <div class="col-md-6 mb-4" id="video-sajen">
-            <iframe width="100%" height="200" id="sajen"
+            <iframe
+              width="100%"
+              height="200"
+              id="sajen"
               src="https://www.youtube.com/embed/s14aycGt_h4?si=kOtSeEFXsYQQ9xf8"
-              title="Pemutar video YouTube" frameborder="0"
+              title="Pemutar video YouTube"
+              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
           <div class="col-md-6 mb-4" id="video-siul">
-            <iframe width="100%" height="200" id="siul"
+            <iframe
+              width="100%"
+              height="200"
+              id="siul"
               src="https://www.youtube.com/embed/_VvIOzZeLcE?si=4UlTKkDTpwA7XvJu"
-              title="Pemutar video YouTube" frameborder="0"
+              title="Pemutar video YouTube"
+              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
-        </div>
-        <div class="row">
           <div class="col-md-6 mb-4" id="video-kendil">
-            <iframe width="100%" height="200" id="kendil"
+            <iframe
+              width="100%"
+              height="200"
+              id="kendil"
               src="https://www.youtube.com/embed/hd1GvLLA-P4?si=PlZsV_jII6AfV-21"
-              title="Pemutar video YouTube" frameborder="0"
+              title="Pemutar video YouTube"
+              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
@@ -108,82 +136,84 @@
         </div>
 
         <!-- Area pesan kesalahan -->
-        <div id="error-message" class="error-message text-danger"
+        <div
+          id="error-message"
+          class="error-message text-danger"
           style="display: none"></div>
       </div>
     </div>
-    
-<!-- footer -->
-<footer class="bg-dark text-light py-4">
-  <div class="container text-center">
-    <p>&copy; 2024 Pemutar Video Sekolah. Hak cipta dilindungi.</p>
-  </div>
-</footer>
-<!-- end footer -->
+
+    <!-- footer -->
+    <footer class="bg-dark text-light py-4">
+      <div class="container text-center">
+        <p>&copy; 2024 Pemutar Video Sekolah. Hak cipta dilindungi.</p>
+      </div>
+    </footer>
+    <!-- end footer -->
+
     <script src="script.js"></script>
     <script>
-      function reset(){
+      function reset() {
         location.reload();
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
-        document.getElementById("search-button").addEventListener("click", function () {
-            // Panggil fungsi pencarian video
-            searchVideo();
+      document
+        .getElementById("search-button")
+        .addEventListener("click", function () {
+          // Panggil fungsi pencarian video
+          searchVideo();
         });
 
-        function searchVideo() {
-            // Ambil nilai dari input pencarian
-            var activity = document.getElementById("search-input").value.trim();
+      function searchVideo() {
+        // Ambil nilai dari input pencarian
+        var activity = document.getElementById("search-input").value.trim();
 
-            // Logika pencarian video
-            if (activity === "lhaaaa") {
-                // Tampilkan video lhaaaa
-                showVideoByID("lhaaaa");
-
-            } else if (activity === "surup") {
-                // Tampilkan video surup
-                showVideoByID("surup");
-
-            } else if (activity === "sajen") {
-                // Tampilkan video sajen
-                showVideoByID("sajen");
-
-            } else if (activity === "siul") {
-                // tampilkan video siul
-                showVideoByID("siul");
-            } else if(activity === "kendil"){
-              showVideoByID("kendil");
-            } else {
-                // Tampilkan notifikasi error jika video tidak ditemukan
-                showErrorNotification();
-            }
+        // Logika pencarian video
+        if (activity === "lhaaaa") {
+          // Tampilkan video lhaaaa
+          showVideoByID("lhaaaa");
+        } else if (activity === "surup") {
+          // Tampilkan video surup
+          showVideoByID("surup");
+        } else if (activity === "sajen") {
+          // Tampilkan video sajen
+          showVideoByID("sajen");
+        } else if (activity === "siul") {
+          // tampilkan video siul
+          showVideoByID("siul");
+        } else if (activity === "kendil") {
+          showVideoByID("kendil");
+        } else {
+          // Tampilkan notifikasi error jika video tidak ditemukan
+          showErrorNotification();
         }
+      }
 
-        function showVideoByID(videoID) {
-            // Sembunyikan semua video
-            var videos = document.querySelectorAll("iframe");
-            videos.forEach(function (video) {
-                video.style.display = "none";
-            });
+      function showVideoByID(videoID) {
+        // Sembunyikan semua video
+        var videos = document.querySelectorAll("iframe");
+        videos.forEach(function (video) {
+          video.style.display = "none";
+        });
 
-            // Tampilkan video dengan ID yang sesuai
-            var videoToShow = document.getElementById(videoID);
-            if (videoToShow) {
-                videoToShow.style.display = "block";
-                document.getElementById("error-message").style.display = "none"; // Sembunyikan pesan kesalahan jika video ditemukan
-            }
+        // Tampilkan video dengan ID yang sesuai
+        var videoToShow = document.getElementById(videoID);
+        if (videoToShow) {
+          videoToShow.style.display = "block";
+          document.getElementById("error-message").style.display = "none"; // Sembunyikan pesan kesalahan jika video ditemukan
         }
+      }
 
-        function showErrorNotification() {
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Video tidak ditemukan. Silakan coba lagi!",
-                footer: '<a href="#">Mengapa saya memiliki masalah ini?</a>',
-            });
-        }
+      function showErrorNotification() {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Video tidak ditemukan. Silakan coba lagi!",
+          footer: '<a href="#">Mengapa saya memiliki masalah ini?</a>',
+        });
+      }
     </script>
   </body>
 </html>

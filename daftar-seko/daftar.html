@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pendaftaran Siswa Baru</title>
     <!-- Include Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- SweetAlert library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -15,8 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <img src="../assets/img/siswabaru-removebg-preview.png"
-                     alt="Your Image" class="img-fluid w-100 ">
+                <img src="../assets/img/siswabaru-removebg-preview.png" alt="Your Image" class="img-fluid w-100 ">
             </div>
             <div class="col-md-6 mx-auto">
                 <div class="card mt-5">
@@ -36,8 +36,8 @@
                             <div class="mb-3">
                                 <label for="grade" class="form-label">Kelas</label>
                                 <select id="grade" name="grade" class="form-select">
-                                    <option selected>Pilih Kelas</option>
-                                    <option>Kelas 10</option>
+                                    <option value="" selected>Pilih Kelas</option>
+                                    <option value="Kelas 10">Kelas 10</option>
                                     <!-- Tambahkan opsi lebih banyak jika diperlukan -->
                                 </select>
                             </div>
@@ -48,21 +48,22 @@
                             <div class="mb-3">
                                 <label for="major" class="form-label">Jurusan</label>
                                 <select id="major" name="major" class="form-select">
-                                    <option selected>Pilih Jurusan</option>
-                                    <option>IPA</option>
-                                    <option>IPS</option>
+                                    <option value="" selected>Pilih Jurusan</option>
+                                    <option value="IPA">IPA</option>
+                                    <option value="IPS">IPS</option>
                                     <!-- Tambahkan opsi lainnya jika diperlukan -->
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="reason" class="form-label">Alasan Masuk Sekolah</label><br>
-                                <input type="text" id="reason" name="reason" class="form-control" placeholder="Ketikkan Alasan Anda">
+                                <input type="text" id="reason" name="reason" class="form-control"
+                                    placeholder="Ketikkan Alasan Anda">
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Alamat</label>
                                 <textarea id="address" name="address" rows="3" class="form-control"></textarea>
                             </div>
-                            <div class="">
+                            <div>
                                 <button type="submit" class="btn btn-outline-primary">Daftar</button>
                                 <button type="reset" class="btn btn-outline-secondary">Reset</button>
                                 <a href="../index.html" class="btn btn-outline-danger">Back</a>
@@ -74,10 +75,7 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
-
     <script>
-        // Fungsi untuk menangani pengiriman formulir
         function handleSubmit(event) {
             event.preventDefault(); // Mencegah perilaku default formulir
 
@@ -89,6 +87,17 @@
             var address = document.getElementById("address").value;
             var major = document.getElementById("major").value;
             var reason = document.getElementById("reason").value;
+
+            // Memvalidasi input
+            if (name === "" || email === "" || grade === "" || dob === "" || address === "" || major === "" || reason === "") {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Semua bidang harus diisi!',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
 
             // Membuat pesan untuk dikirim ke WhatsApp
             var message = "Nama: " + name + "%0A" +
@@ -109,18 +118,26 @@
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Jika pengguna mengonfirmasi, maka kirim ke WhatsApp
                     sendToWhatsApp(message);
                 }
             });
         }
-        form.reset();
+
         // Fungsi untuk mengirim pesan ke WhatsApp
         function sendToWhatsApp(message) {
-            // Ganti nomor WhatsApp sesuai kebutuhan Anda
             var whatsappURL = 'https://api.whatsapp.com/send?phone=6281235702123&text=' + message;
-            // Buka link WhatsApp
-            window.open(whatsappURL);
+            window.open(whatsappURL, '_blank');
+
+            // Reset form setelah mengirim pesan
+            document.getElementById("registrationForm").reset();
+
+            // Menampilkan pesan sukses
+            Swal.fire({
+                title: 'Terkirim',
+                text: 'Data berhasil dikirim ke WhatsApp!',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
         }
     </script>
 </body>
