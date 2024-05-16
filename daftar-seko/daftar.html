@@ -138,91 +138,123 @@
   
 
     <script>
-        const translations = {
-            en: {
-                formTitle: "New Student Registration",
-                labelName: "Full Name",
-                labelEmail: "Email Address",
-                labelDob: "Date of Birth",
-                labelMajor: "Major",
-                labelReason: "Reason for Joining",
-                labelAddress: "Address",
-                btnSubmit: "Register",
-                btnReset: "Reset",
-                btnDetails: "Major Details",
-                btnBack: "Back",
-                modalTitle: "Most Popular Majors in 2023",
-                modalHeading: "Most Popular Majors in 2023",
-                modalDescription: "The most popular majors at Al Ahzar",
-                btnClose: "Close",
-                footerText: "&copy; 2024 Al Ahzar School. All rights reserved."
-            },
-            ja: {
-                formTitle: "新入生登録",
-                labelName: "フルネーム",
-                labelEmail: "メールアドレス",
-                labelDob: "生年月日",
-                labelMajor: "専攻",
-                labelReason: "入学理由",
-                labelAddress: "住所",
-                btnSubmit: "登録",
-                btnReset: "リセット",
-                btnDetails: "専攻の詳細",
-                btnBack: "戻る",
-                modalTitle: "2023年の最も人気のある専攻",
-                modalHeading: "2023年の最も人気のある専攻",
-                modalDescription: "Al Ahzarで最も人気のある専攻",
-                btnClose: "閉じる",
-                footerText: "&copy; 2024 Al Ahzar School. すべての権利を保有。"
-            }
-        };
+     const translations = {
+    en: {
+        formTitle: "New Student Registration",
+        labelName: "Full Name",
+        labelEmail: "Email Address",
+        labelDob: "Date of Birth",
+        labelMajor: "Major",
+        labelReason: "Reason for Joining",
+        labelAddress: "Address",
+        btnSubmit: "Register",
+        btnReset: "Reset",
+        btnDetails: "Major Details",
+        btnBack: "Back",
+        modalTitle: "Most Popular Majors in 2023",
+        modalHeading: "Most Popular Majors in 2023",
+        modalDescription: "The most popular majors at Al Ahzar",
+        btnClose: "Close",
+        footerText: "&copy; 2024 Al Ahzar School. All rights reserved."
+    },
+    ja: {
+        formTitle: "新入生登録",
+        labelName: "フルネーム",
+        labelEmail: "メールアドレス",
+        labelDob: "生年月日",
+        labelMajor: "専攻",
+        labelReason: "入学理由",
+        labelAddress: "住所",
+        btnSubmit: "登録",
+        btnReset: "リセット",
+        btnDetails: "専攻の詳細",
+        btnBack: "戻る",
+        modalTitle: "2023年の最も人気のある専攻",
+        modalHeading: "2023年の最も人気のある専攻",
+        modalDescription: "Al Ahzarで最も人気のある専攻",
+        btnClose: "閉じる",
+        footerText: "&copy; 2024 Al Ahzar School. すべての権利を保有。"
+    }
+};
 
-        document.getElementById('language-select').addEventListener('change', function () {
-            const selectedLanguage = this.value;
-            const texts = translations[selectedLanguage];
-            document.getElementById('form-title').innerText = texts.formTitle;
-            document.getElementById('label-name').innerText = texts.labelName;
-            document.getElementById('label-email').innerText = texts.labelEmail;
-            document.getElementById('label-dob').innerText = texts.labelDob;
-            document.getElementById('label-major').innerText = texts.labelMajor;
-            document.getElementById('label-reason').innerText = texts.labelReason;
-            document.getElementById('label-address').innerText = texts.labelAddress;
-            document.getElementById('btn-submit').innerText = texts.btnSubmit;
-            document.getElementById('btn-reset').innerText = texts.btnReset;
-            document.getElementById('btn-details').innerText = texts.btnDetails;
-            document.getElementById('btn-back').innerText = texts.btnBack;
-            document.getElementById('modal-title').innerText = texts.modalTitle;
-            document.getElementById('modal-heading').innerText = texts.modalHeading;
-            document.getElementById('modal-description').innerText = texts.modalDescription;
-            document.getElementById('btn-close').innerText = texts.btnClose;
-            document.getElementById('footer-text').innerHTML = texts.footerText;
+document.getElementById('language-select').addEventListener('change', function () {
+    const selectedLanguage = this.value;
+    const texts = translations[selectedLanguage];
+    document.getElementById('form-title').innerText = texts.formTitle;
+    document.getElementById('label-name').innerText = texts.labelName;
+    document.getElementById('label-email').innerText = texts.labelEmail;
+    document.getElementById('label-dob').innerText = texts.labelDob;
+    document.getElementById('label-major').innerText = texts.labelMajor;
+    document.getElementById('label-reason').innerText = texts.labelReason;
+    document.getElementById('label-address').innerText = texts.labelAddress;
+    document.getElementById('btn-submit').innerText = texts.btnSubmit;
+    document.getElementById('btn-reset').innerText = texts.btnReset;
+    document.getElementById('btn-details').innerText = texts.btnDetails;
+    document.getElementById('btn-back').innerText = texts.btnBack;
+    document.getElementById('modal-title').innerText = texts.modalTitle;
+    document.getElementById('modal-heading').innerText = texts.modalHeading;
+    document.getElementById('modal-description').innerText = texts.modalDescription;
+    document.getElementById('btn-close').innerText = texts.btnClose;
+    document.getElementById('footer-text').innerHTML = texts.footerText;
+});
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const form = document.getElementById('registrationForm');
+    const name = form.name.value;
+    const email = form.email.value;
+    const dob = form.dob.value;
+    const major = form.major.value;
+    const reason = form.reason.value;
+    const address = form.address.value;
+
+    if (!name || !email || !dob || !major || !reason || !address) {
+        Swal.fire({
+            icon: 'error',
+            text: 'Harap isi semua bidang!',
+            title: 'Error',
+            confirmButtonText: 'OK'
         });
+        return;
+    }
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            const form = document.getElementById('registrationForm');
-            const name = form.name.value;
-            const email = form.email.value;
-            const dob = form.dob.value;
-            const major = form.major.value;
-            const reason = form.reason.value;
-            const address = form.address.value;
-
-            if (!name || !email || !dob || !major || !reason || !address) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Harap isi semua bidang!'
-                });
-            } else {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Berhasil',
-                    text: 'Pendaftaran Anda berhasil!'
-                });
-                form.reset();
-            }
+    Swal.fire({
+        title: 'Konfirmasi',
+        text: 'Apakah Anda Sudah Masukan Data dengan Benar?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Ya',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const message = `Nama Lengkap:
+             ${name}\nEmail: ${email}\nTanggal Lahir:
+              ${dob}\nJurusan: ${major}\nAlasan Masuk Sekolah: 
+              ${reason}\nAlamat:
+               ${address}`;
+            sendToWhatsApp(message);
         }
+    });
+}
+
+function sendToWhatsApp(message) {
+    const whatsappURL = `https://api.whatsapp.com/send?phone=6281235702123&text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+
+    // Reset form setelah mengirim pesan
+    document.getElementById("registrationForm").reset();
+
+    // Menampilkan pesan sukses
+    Swal.fire({
+        title: 'Terkirim',
+        text: 'Data berhasil dikirim ke WhatsApp!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
+}
+
+document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
+
     </script>
 </body>
 
