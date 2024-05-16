@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Siswa Baru</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- SweetAlert library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body class="bg-light p-4">
+    <div class="container">
+        <!-- Language Selector -->
+        <div class="d-flex justify-content-end">
+            <label for="language-select" class="me-2">Pilih Bahasa:</label>
+            <select id="language-select" class="form-select w-auto">
+                <option value="id">Indonesia</option>
+                <option value="en">English</option>
+                <option value="vi">Vietnamese</option>
+                <option value="ja">Japanese</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <img src="../assets/img/siswabaru-removebg-preview.png" alt="Your Image" class="img-fluid w-100">
+            </div>
+            <div class="col-md-6 mx-auto">
+                <div class="card mt-5">
+                    <div class="card-header bg-primary text-white">
+                        <h2 id="form-title" class="card-title mb-0">Pendaftaran Siswa Baru</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="registrationForm" onsubmit="handleSubmit(event)">
+                            <div class="mb-3">
+                                <label for="name" id="label-name" class="form-label">Nama Lengkap</label>
+                                <input type="text" id="name" name="name" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" id="label-email" class="form-label">Alamat Email</label>
+                                <input type="email" id="email" name="email" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="dob" id="label-dob" class="form-label">Tanggal Lahir</label>
+                                <input type="date" id="dob" name="dob" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="major" id="label-major" class="form-label">Jurusan</label>
+                                <select id="major" name="major" class="form-select">
+                                    <option value="" selected>Pilih Jurusan</option>
+                                    <option value="TKJ">TKJ</option>
+                                    <option value="RPL">RPL</option>
+                                    <option value="TB">TB</option>
+                                    <option value="Akuntasi">Akuntasi</option>
+                                    <option value="TKR">TKR</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="reason" id="label-reason" class="form-label">Alasan Masuk Sekolah</label>
+                                <input type="text" id="reason" name="reason" class="form-control" placeholder="Ketikkan Alasan Anda">
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" id="label-address" class="form-label">Alamat</label>
+                                <textarea id="address" name="address" rows="3" class="form-control"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" id="btn-submit" class="btn btn-outline-primary">Daftar</button>
+                                <button type="reset" id="btn-reset" class="btn btn-outline-secondary">Reset</button>
+                                <button type="button" id="btn-details" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Details Jurusan
+                                </button>
+                                <a href="../index.html" id="btn-back" class="btn btn-outline-danger">Back</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title">Jurusan Terbanyak Tahun 2023</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <section id="Eskul" class="skills">
+                        <div class="container" data-aos="fade-up">
+                            <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+                                <h3 id="modal-heading">Jurusan Terbanyak Tahun 2023</h3>
+                                <p id="modal-description" class="fst-italic">Rata-Rata jurusan terbanyak di Al Ahzar</p>
+                                <div class="skills-content">
+                                    <div class="progress">
+                                        <span class="skill">(TKR) Tehnik Kendaraan Ringan <i class="val">170%</i></span>
+                                        <div class="progress-bar-wrap">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="170"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <span class="skill">(AK) AKUNTANSI <i class="val">105%</i></span>
+                                        <div class="progress-bar-wrap">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="105"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <span class="skill">(TKJ) Tehnik Komputer Jaringan <i class="val">95%</i></span>
+                                        <div class="progress-bar-wrap">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="95"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <span class="skill">(RPL) Rekayasa Perangkat Lunak <i class="val">90%</i></span>
+                                        <div class="progress-bar-wrap">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="90"></div>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <span class="skill">(TB) Tata Busana <i class="val">97%</i></span>
+                                        <div class="progress-bar-wrap">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="97"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="mt-5 bg-dark text-white p-4 text-center">
+        <p id="footer-text">&copy; 2024 Al Ahzar School. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                formTitle: "New Student Registration",
+                labelName: "Full Name",
+                labelEmail: "Email Address",
+                labelDob: "Date of Birth",
+                labelMajor: "Major",
+                labelReason: "Reason for Joining",
+                labelAddress: "Address",
+                btnSubmit: "Register",
+                btnReset: "Reset",
+                btnDetails: "Major Details",
+                btnBack: "Back",
+                modalTitle: "Most Popular Majors in 2023",
+                modalHeading: "Most Popular Majors in 2023",
+                modalDescription: "The most popular majors at Al Ahzar",
+                btnClose: "Close",
+                footerText: "&copy; 2024 Al Ahzar School. All rights reserved."
+            },
+            vi: {
+                formTitle: "Đăng Ký Học Sinh Mới",
+                labelName: "Họ Và Tên",
+                labelEmail: "Địa Chỉ Email",
+                labelDob: "Ngày Sinh",
+                labelMajor: "Chuyên Ngành",
+                labelReason: "Lý Do Tham Gia",
+                labelAddress: "Địa Chỉ",
+                btnSubmit: "Đăng Ký",
+                btnReset: "Đặt Lại",
+                btnDetails: "Chi Tiết Chuyên Ngành",
+                btnBack: "Quay Lại",
+                modalTitle: "Chuyên Ngành Phổ Biến Nhất Năm 2023",
+                modalHeading: "Chuyên Ngành Phổ Biến Nhất Năm 2023",
+                modalDescription: "Các chuyên ngành phổ biến nhất tại Al Ahzar",
+                btnClose: "Đóng",
+                footerText: "&copy; 2024 Trường Al Ahzar. Đã đăng ký bản quyền."
+            },
+            ja: {
+                formTitle: "新入生登録",
+                labelName: "フルネーム",
+                labelEmail: "メールアドレス",
+                labelDob: "生年月日",
+                labelMajor: "専攻",
+                labelReason: "入学理由",
+                labelAddress: "住所",
+                btnSubmit: "登録",
+                btnReset: "リセット",
+                btnDetails: "専攻の詳細",
+                btnBack: "戻る",
+                modalTitle: "2023年の最も人気のある専攻",
+                modalHeading: "2023年の最も人気のある専攻",
+                modalDescription: "Al Ahzarで最も人気のある専攻",
+                btnClose: "閉じる",
+                footerText: "&copy; 2024 Al Ahzar School. すべての権利を保有。"
+            }
+        };
+
+        document.getElementById('language-select').addEventListener('change', function () {
+            const selectedLanguage = this.value;
+            const texts = translations[selectedLanguage];
+            document.getElementById('form-title').innerText = texts.formTitle;
+            document.getElementById('label-name').innerText = texts.labelName;
+            document.getElementById('label-email').innerText = texts.labelEmail;
+            document.getElementById('label-dob').innerText = texts.labelDob;
+            document.getElementById('label-major').innerText = texts.labelMajor;
+            document.getElementById('label-reason').innerText = texts.labelReason;
+            document.getElementById('label-address').innerText = texts.labelAddress;
+            document.getElementById('btn-submit').innerText = texts.btnSubmit;
+            document.getElementById('btn-reset').innerText = texts.btnReset;
+            document.getElementById('btn-details').innerText = texts.btnDetails;
+            document.getElementById('btn-back').innerText = texts.btnBack;
+            document.getElementById('modal-title').innerText = texts.modalTitle;
+            document.getElementById('modal-heading').innerText = texts.modalHeading;
+            document.getElementById('modal-description').innerText = texts.modalDescription;
+            document.getElementById('btn-close').innerText = texts.btnClose;
+            document.getElementById('footer-text').innerHTML = texts.footerText;
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('registrationForm');
+            const name = form.name.value;
+            const email = form.email.value;
+            const dob = form.dob.value;
+            const major = form.major.value;
+            const reason = form.reason.value;
+            const address = form.address.value;
+
+            if (!name || !email || !dob || !major || !reason || !address) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Harap isi semua bidang!'
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: 'Pendaftaran Anda berhasil!'
+                });
+                form.reset();
+            }
+        }
+    </script>
+</body>
+
+</html>
