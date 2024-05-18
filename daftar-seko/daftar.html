@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" >
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
@@ -20,6 +20,9 @@
                 <option value="en">English</option>
                 <option value="ja">Japanese</option>
             </select>
+        </div>
+        <div id="robbite-conttainer" class="text-center mt-4">
+            <div id="robit-message"></div>
         </div>
         <div class="row">
             <div class="col-md-6 mx-auto">
@@ -135,9 +138,27 @@
         </div>
     </div>
     <!-- Footer -->
-  
+    <style>
+        #robit-container {
+            margin-top: 50px;
+        }
+    
+        #robit-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+    
+    <!-- inclaude js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="indlaoud.js"></script>
 
     <script>
+          function reset() {
+            window.location.reload();
+        }
+
      const translations = {
     en: {
         formTitle: "New Student Registration",
@@ -178,7 +199,10 @@
 };
 
 document.getElementById('language-select').addEventListener('change', function () {
-    const selectedLanguage = this.value;
+    if(this.value === 'id'){
+        reset();
+    }else {
+        const selectedLanguage = this.value;
     const texts = translations[selectedLanguage];
     document.getElementById('form-title').innerText = texts.formTitle;
     document.getElementById('label-name').innerText = texts.labelName;
@@ -196,6 +220,8 @@ document.getElementById('language-select').addEventListener('change', function (
     document.getElementById('modal-description').innerText = texts.modalDescription;
     document.getElementById('btn-close').innerText = texts.btnClose;
     document.getElementById('footer-text').innerHTML = texts.footerText;
+    }
+   
 });
 
 function handleSubmit(event) {
@@ -227,11 +253,7 @@ function handleSubmit(event) {
         cancelButtonText: 'Batal'
     }).then((result) => {
         if (result.isConfirmed) {
-            const message = `Nama Lengkap:
-             ${name}\nEmail: ${email}\nTanggal Lahir:
-              ${dob}\nJurusan: ${major}\nAlasan Masuk Sekolah: 
-              ${reason}\nAlamat:
-               ${address}`;
+            const message = `Nama Lengkap: ${name}\nEmail: ${email}\nTanggal Lahir: ${dob}\nJurusan: ${major}\nAlasan Masuk Sekolah: ${reason}\nAlamat: ${address}`;
             sendToWhatsApp(message);
         }
     });
