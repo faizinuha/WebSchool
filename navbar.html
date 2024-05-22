@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <style>
+    body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #162447;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 10px;
+}
+
+.sidebar-menu li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-menu li a:hover, .sidebar-menu li a.active {
+    background-color: #1f4068;
+    color: #e43f5a;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f4068;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.welcome-message h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.user-role {
+    margin-right: 10px;
+    background-color: #e43f5a;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #e43f5a;
+}
+
+.dashboard .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    background-color: #1f4068;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.stat-item:hover {
+    background-color: #e43f5a;
+    transform: scale(1.05);
+}
+
+.stat-item:last-child {
+    margin-right: 0;
+}
+
+.stat-title {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.task-list {
+    background-color: #1f4068;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.task-list h2 {
+    margin-top: 0;
+    border-bottom: 2px solid #e43f5a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.task-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #162447;
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.task-list li:hover {
+    background-color: #e43f5a;
+    transform: translateX(10px);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .welcome-message h1 {
+        font-size: 1.2em;
+    }
+
+    .dashboard .stats {
+        flex-direction: column;
+    }
+
+    .stat-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+  </style>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="path/to/logo.png" alt="Logo">
+                </div>
+                <h2>Dashboard</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#tugas" class="active">Tugas</a></li>
+                <li><a href="#tantangan">Tantangan</a></li>
+                <li><a href="#peringkat">Peringkat</a></li>
+                <li><a href="#jadwal">Jadwal</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Navbar -->
+            <div class="navbar">
+                <div class="welcome-message">
+                    <h1>Selamat Datang, Bukhulun Nuha (Siswa)</h1>
+                </div>
+                <div class="user-info">
+                    <span class="user-name">Bukhulun Nuha</span>
+                    <span class="user-role">student</span>
+                    <img src="path/to/user-icon.png" alt="User Icon" class="user-icon">
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-title">Jumlah Tugas</span>
+                        <span class="stat-value">5</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-title">Jumlah Tantangan</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-title">Jumlah Materi</span>
+                        <span class="stat-value">2</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-title">Jumlah Point</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="task-list">
+                    <h2>Tugas dan Challenge</h2>
+                    <ul>
+                        <li>Tugas 1 - Chart (31 Desember 2024 09:37)</li>
+                        <li>Tugas 1 - CRUD Laravel (31 Desember 2024 09:29)</li>
+                        <li>Tugas 1 - Struktur PHP (31 Desember 2024 08:33)</li>
+                        <li>Tugas 1 - Variabel dan Tipe Data (31 Desember 2024 08:44)</li>
+                        <li>Tugas 2 - Struktur PHP (TBA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
